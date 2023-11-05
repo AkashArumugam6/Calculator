@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ffffff;
+}
+
+#minimize-button {
+    position: relative;
+    bottom: 330px;
+    right: 585px;
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #ff5f58;
+}
+
+#fullscreen-button {
+    position: relative;
+    bottom: 330px;
+    right: 570px;
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #febc2e;
+}
+#close-button {
+    position: relative;
+    bottom: 330px;
+    right: 555px;
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #29c83f;
+} 
+
+canvas {
+    border: 1px solid #4f4f53;
+    border-radius: 15px;
+}
