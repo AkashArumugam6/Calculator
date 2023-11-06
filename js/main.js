@@ -2,25 +2,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-// Create buttons for minimizing, going fullscreen, and closing the calculator
-const calculatorContainer = document.createElement("div");
-calculatorContainer.id = "calculator-container";
-
-const minimizeIcon = document.createElement("button");
-minimizeIcon.id = "minimize-button";
-
-const fullscreenIcon = document.createElement("button");
-fullscreenIcon.id = "fullscreen-button";
-
-const closeIcon = document.createElement("button");
-closeIcon.id = "close-button";
-
-calculatorContainer.appendChild(minimizeIcon);
-calculatorContainer.appendChild(fullscreenIcon);
-calculatorContainer.appendChild(closeIcon);
-
-document.body.appendChild(calculatorContainer);
-
 // Define button dimensions and font properties
 const buttonWidth = 120;
 const buttonHeight = 100;
@@ -53,6 +34,31 @@ const buttons = [
     ["+", 480, 500],
     ["=", 480, 600],   
 ];
+
+// Function to draw the circular buttons
+function drawCircularButton() {
+    const buttonRadius = 10;
+
+    // Red button
+    ctx.fillStyle = "#ff5f58";
+    ctx.beginPath();
+    ctx.arc(25, 25, buttonRadius, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Yellow button
+    ctx.fillStyle = "#febc2e";
+    ctx.beginPath();
+    ctx.arc(60, 25, buttonRadius, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Green button
+    ctx.fillStyle = "#29c83f";
+    ctx.beginPath();
+    ctx.arc(95, 25, buttonRadius, 0, Math.PI * 2);
+    ctx.fill();
+
+}
+
 
 // Function to draw the calculator buttons and interface
 function drawCalculator(){
@@ -94,14 +100,15 @@ function drawCalculator(){
         const textY = y + 100 / 2;
         ctx.fillText(text, textX, textY);
 
-        
     });
+
+    drawCircularButton();
 }
+
 
 // Initialize input and result variables
 let input = "";
 let result = "";
-
 
 // Click event listener to the canvas for caluclator operations
 canvas.addEventListener("click", (e) => {
