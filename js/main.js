@@ -107,7 +107,6 @@ let result = "";
 canvas.addEventListener("click", (e) => {
     const x = e.offsetX;
     const y = e.offsetY;
-
     
     for (const button of buttons) {
         const [text, buttonX, buttonY, colspan = 1] = button;
@@ -121,24 +120,18 @@ canvas.addEventListener("click", (e) => {
             else if (text === "=") {
                 
                 try {
-                    // Replace 'x' with '*' for multiplication and evaluate the expression
+                    // Replacing 'x' with '*' for multiplication and evaluate the expression
                     const expression = input.replace(/x/g, '*');
                     result = eval(expression);
                 } catch (error) {
                     result = "Invalid Expression";
                 }
             } 
-            else if (text === " ") {
-                break;
-
-            }
-
+    
             else if (input === " ") {
                 result = "0";
-
             }
-            else {
-                
+            else {  
                 input += text;
             }
             
@@ -149,14 +142,11 @@ canvas.addEventListener("click", (e) => {
             ctx.fillStyle = "#ebebec";
             ctx.textBaseline = "middle";
 
-            ctx.fillText(input, canvas.width - 30 - input.length * 10, 100);
+            ctx.textAlign = 'right';
+            ctx.fillText(input,canvas.width - 20, 100);
             
-            if (result === "Invalid Expression"){
-                ctx.fillText(result, canvas.width - 190, 150);
-            }
-            else {
-                ctx.fillText(result, canvas.width - 50 - input.length * 5, 150);
-            }
+            ctx.textAlign = 'right';
+            ctx.fillText(result, canvas.width - 20 , 150);
             
             break;
         }
