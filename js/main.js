@@ -110,6 +110,11 @@ function drawCalculator(){
 let input = "";
 let result = "";
 
+// Constructor function that returns the evaluated expression
+function calculate(expression){
+    return Function('"use strict"; return (' + expression + ')')();
+};
+
 // Click event listener to the canvas for caluclator operations
 canvas.addEventListener("click", (e) => {
     const x = e.offsetX;
@@ -129,7 +134,7 @@ canvas.addEventListener("click", (e) => {
                 try {
                     // Replacing 'x' with '*' for multiplication and evaluate the expression
                     const expression = input.replace(/x/g, '*');
-                    result = eval(expression);
+                    result = calculate(expression);
                 } catch (error) {
                     result = "Invalid Expression";
                 }
